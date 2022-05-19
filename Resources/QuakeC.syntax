@@ -52,6 +52,16 @@
           Bold = YES;
         },
         {
+          Pattern = "<bool>";
+          ForegroundColor = "0.376 1.0 0.376";
+          Bold = YES;
+        },
+        {
+          Pattern = "<__variant>";
+          ForegroundColor = "0.376 1.0 0.376";
+          Bold = YES;
+        },
+        {
           Pattern = "<static>";
           ForegroundColor = "0.376 1.0 0.376";
           Bold = YES;

@@ -171,6 +171,15 @@
       NSDocumentClass = GemasDocument;
     },
     {
+      NSName = "PortableObject";
+      NSHumanReadableName = "Portable Object file";
+      NSIcon = "FileIcon_.po.tiff";
+      NSUnixExtensions = ( po );
+      NSDOSExtensions = ( po );
+      NSRole = Editor;
+      NSDocumentClass = GemasDocument;
+    },
+    {
       NSName = "Generic";
       NSHumanReadableName = "Other";
       NSIcon = "FileIcon_txt.tiff";

@@ -37,6 +37,7 @@ Resources/FileIcon_.qc.tiff \
 Resources/FileIcon_.glsl.tiff \
 Resources/FileIcon_.mat.tiff \
 Resources/FileIcon_.shader.tiff \
+Resources/FileIcon_.po.tiff \
 Resources/FileIcon_script.tiff \
 Resources/FileIcon_txt.tiff \
 Resources/FileIcon_makefile.tiff \
@@ -47,6 +48,7 @@ Resources/QuakeC.syntax \
 Resources/GLSL.syntax \
 Resources/Material.syntax \
 Resources/Q3AShader.syntax \
+Resources/PortableObject.syntax \
 Resources/words.plist
 
 
