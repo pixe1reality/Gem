@@ -47,6 +47,11 @@
           Bold = YES;
         },
         {
+          Pattern = "<string>";
+          ForegroundColor = "0.376 1.0 0.376";
+          Bold = YES;
+        },
+        {
           Pattern = "<int>";
           ForegroundColor = "0.376 1.0 0.376";
           Bold = YES;
