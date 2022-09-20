@@ -184,6 +184,23 @@
     }
 }
 
+- (NSRect) getFrame
+{
+	NSArray *windowController = [self windowControllers];
+	NSWindowController *controller = [windowController objectAtIndex: 0];
+	NSWindow *window = [controller window];
+	return [window frame];
+}
+
+- (void) setWindowFrame: (NSRect) frame
+{
+
+	NSArray *windowController = [self windowControllers];
+	NSWindowController *controller = [windowController objectAtIndex: 0];
+	NSWindow *window = [controller window];
+	[window setFrame: frame display: YES];
+}
+
 - (BOOL) readFromFile: (NSString *) fileName ofType: (NSString *) fileType
 {
   NSLog(@"read from file..");

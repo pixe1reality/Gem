@@ -32,17 +32,20 @@
 
 @interface GemasDocument : NSDocument
 {
-  id textView;
-  id numberLine;
-  id numberColumn;
-  id documentWindow;
+	id textView;
+	id numberLine;
+	id numberColumn;
+	id documentWindow;
 
-  NSString *string;
-  NSColor *textColor;
+	NSString *string;
+	NSColor *textColor;
 
-  // Autocomplete  
-  NSUInteger length;
+	// Autocomplete  
+	NSUInteger length;
 }
+
+- (NSRect) getFrame;
+- (void) setWindowFrame: (NSRect) frame;
 - (void) goToLineNumber: (int)number;
 - (void) textViewDidChangeSelection: (NSNotification *) notification;
 - (NSColor *) textColor;

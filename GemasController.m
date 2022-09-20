@@ -35,6 +35,34 @@
 
 @implementation GemasController
 
+- (void) restoreSession
+{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];  
+	NSArray * sessioninfo = [defaults objectForKey: @"sessioninfo"];
+	NSDocumentController *docController = [NSDocumentController sharedDocumentController];
+
+	if (sessioninfo && [sessioninfo count]) {
+		NSUInteger i;
+    
+		for (i = 0; i < [sessioninfo count]; i++) {
+			BOOL b;
+ 			NSDictionary *dict = [sessioninfo objectAtIndex: i];
+			NSString *path = [dict objectForKey: @"path"];
+			NSString *framestr = [dict objectForKey: @"frame"];
+			NSRect frame = NSRectFromString(framestr);
+			b = [[NSFileManager defaultManager] fileExistsAtPath: path];
+    
+			if (path && b) {
+				GemasDocument *doc;
+				doc = [docController openDocumentWithContentsOfFile: path display: YES];
+
+				if (framestr)
+					[doc setWindowFrame: frame];
+			}
+		}
+	}
+}
+
 - (void) awakeFromNib
 {
   NSLog(@"awake!");
@@ -48,6 +76,28 @@
   list = [NSArray arrayWithContentsOfFile:
     [[NSBundle mainBundle] pathForResource: @"words" ofType: @"plist"]];
   [list retain];
+
+	[self restoreSession];
+}
+
+/* called when we are meant to quit */
+- (NSApplicationTerminateReply) applicationShouldTerminate: (NSApplication*)sender
+{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];  
+	NSMutableArray *sessioninfo = [NSMutableArray array];
+	NSArray *docs = [[NSDocumentController sharedDocumentController] documents];
+
+	for (int i = 0; i < [docs count]; i++) {
+		NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+		GemasDocument *doc = [docs objectAtIndex: i];
+		[dict setObject: [doc fileName] forKey: @"path"];
+		[dict setObject: NSStringFromRect([doc getFrame]) forKey: @"frame"];
+		[sessioninfo addObject: dict];
+	}
+
+	[defaults setObject: sessioninfo forKey: @"sessioninfo"];
+	[defaults synchronize];
+	return YES;
 }
 
 - (void) dealloc
