@@ -35,7 +35,7 @@
 
 @implementation GemasController
 
-- (void) restoreSession
+- (void) restoreSession: (id) sender
 {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];  
 	NSArray * sessioninfo = [defaults objectForKey: @"sessioninfo"];
@@ -63,25 +63,7 @@
 	}
 }
 
-- (void) awakeFromNib
-{
-  NSLog(@"awake!");
-  //GSmarkupBrowser = nil;
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSTimeInterval delay = [defaults integerForKey: @"AutosavingDelay"];  
-  
-  [[NSDocumentController sharedDocumentController] setAutosavingDelay: delay];
-  
-  // Autocomplete list of words
-  list = [NSArray arrayWithContentsOfFile:
-    [[NSBundle mainBundle] pathForResource: @"words" ofType: @"plist"]];
-  [list retain];
-
-	[self restoreSession];
-}
-
-/* called when we are meant to quit */
-- (NSApplicationTerminateReply) applicationShouldTerminate: (NSApplication*)sender
+- (void) saveSession: (id) sender
 {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];  
 	NSMutableArray *sessioninfo = [NSMutableArray array];
@@ -97,7 +79,21 @@
 
 	[defaults setObject: sessioninfo forKey: @"sessioninfo"];
 	[defaults synchronize];
-	return YES;
+}
+
+- (void) awakeFromNib
+{
+  NSLog(@"awake!");
+  //GSmarkupBrowser = nil;
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSTimeInterval delay = [defaults integerForKey: @"AutosavingDelay"];  
+  
+  [[NSDocumentController sharedDocumentController] setAutosavingDelay: delay];
+  
+  // Autocomplete list of words
+  list = [NSArray arrayWithContentsOfFile:
+    [[NSBundle mainBundle] pathForResource: @"words" ofType: @"plist"]];
+  [list retain];
 }
 
 - (void) dealloc

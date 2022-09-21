@@ -5,12 +5,14 @@
 	    "applicationShouldOpenUntitledFile:",
 	    "goToLineNumber:",
 	    "insertTab:",
-	    "nextParameter:",
+	    "restoreSession:",
 	    "newProject:",
 	    "newSourceFile:",
+	    "nextParameter:",
 	    "openGoToLinePanel:",
 	    "openPreferences:",
-	    "orderFrontCharacterPalette:"
+	    "orderFrontCharacterPalette:",
+	    "saveSession:"
 	);
 	Super = NSObject;
     };
@@ -20,7 +22,9 @@
 	    "applicationShouldOpenUntitledFile:",
 	    "openPreferences:",
 	    "openGoToLinePanel:",
-	    "newProject:"
+	    "newProject:",
+	    "restoreSession:",
+	    "saveSession:"
 	);
 	Outlets = (
 	);
