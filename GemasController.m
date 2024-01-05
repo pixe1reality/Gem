@@ -102,6 +102,7 @@
   [super dealloc];
 }
 
+//massive switch statement here, should this converted into something less... awkward?
 - (void) newSourceFile: (id)sender
 {
   switch([sender tag])
@@ -165,6 +166,10 @@
     case 15:
       [[NSDocumentController sharedDocumentController]
         openUntitledDocumentOfType: @"Q3AShader" display: YES];
+      break;
+    case 16:
+      [[NSDocumentController sharedDocumentController]
+        openUntitledDocumentOfType: @"HammerFGD" display: YES];
       break;
     }
 }
@@ -338,6 +343,8 @@
     }
 }
 
+//TODO: move Preferences code to its own class.
+//Preferences window itself is a bit awkward and font changing is awkward
 - (void) openPreferences: (id)sender
 {
   if (preferencesPanel == nil)

@@ -180,11 +180,20 @@
       NSDocumentClass = GemasDocument;
     },
     {
+      NSName = "HammerFGD";
+      NSHumanReadableName = "Trenchbroom Entity file";
+      NSIcon = "FileIcon_.fgd.tiff";
+      NSUnixExtensions = ( fgd );
+      NSDOSExtensions = ( fgd );
+      NSRole = Editor;
+      NSDocumentClass = GemasDocument;
+    },
+    {
       NSName = "Generic";
       NSHumanReadableName = "Other";
       NSIcon = "FileIcon_txt.tiff";
-      NSUnixExtensions = ( *, fmf, log, lst, md, src );
-      NSDOSExtensions = ( *, fmf, log, lst, md, src );
+      NSUnixExtensions = ( *, fmf, log, lst, md, src, cfg, font, syntax );
+      NSDOSExtensions = ( *, fmf, log, lst, md, src, cfg, font, syntax );
       NSRole = Editor;
       NSDocumentClass = GemasDocument;
     }

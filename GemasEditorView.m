@@ -299,7 +299,7 @@
                           autorelease]);
                           
   [type retain];
-
+	//this is kind of a funky if statement chain, maybe it should be fixed
   if ([type isEqualToString: @"C"])
     {
       [[self window] setMiniwindowImage: [NSImage imageNamed: @"FileIcon_.c"]];
@@ -322,6 +322,10 @@
   if ([type isEqualToString: @"Material"])
     {
       [[self window] setMiniwindowImage: [NSImage imageNamed: @"FileIcon_.mat"]];
+    }
+  if ([type isEqualToString: @"HammerFGD"])
+    {
+      [[self window] setMiniwindowImage: [NSImage imageNamed: @"FileIcon_.fgd"]];
     }
   if ([type isEqualToString: @"Q3AShader"])
     {

@@ -26,6 +26,7 @@ Resources/Gemas.ico \
 Resources/Gem.ico \
 Resources/FileIcon_.c.tiff \
 Resources/FileIcon_.cc.tiff \
+Resources/FileIcon_.fgd.tiff \
 Resources/FileIcon_.gsmarkup.tiff \
 Resources/FileIcon_.h.tiff \
 Resources/FileIcon_.m.tiff \
@@ -46,6 +47,7 @@ Resources/AppResources \
 Resources/ToolResources \
 Resources/QuakeC.syntax \
 Resources/GLSL.syntax \
+Resources/HammerFGD.syntax \
 Resources/Material.syntax \
 Resources/Q3AShader.syntax \
 Resources/PortableObject.syntax \
